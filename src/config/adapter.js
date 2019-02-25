@@ -36,9 +36,9 @@ exports.model = {
   },
   mysql: {
     handle: mysql,
-    database: 'blog',
+    database: 'lmjn',
     prefix: 'ls_',
-    encoding: 'utf8',
+    encoding: 'utf8mb4',
     host: '127.0.0.1',
     port: '',
     user: 'root',
