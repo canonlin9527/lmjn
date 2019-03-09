@@ -1,18 +1,36 @@
 <template>
     <div class="layout" id="admin" :class="{'layout-hide-text':fold}">
         <Row type="flex" class="admin">
-            <Col :span="fold?1:3" class="layout-menu-left">
+            <Col :span="fold?2:4" class="layout-menu-left">
                 <Menu active-name="1" theme="dark" width="auto" :active-name="route.path"  @on-select="select" >
                     <div class="layout-logo-left"></div>
-                    <template v-for="(item,key) in menu">
-                        <MenuItem  :name="item.path" v-if="!item.children">
-                            <Icon :type="item.icon" :size="iconSize"></Icon>
-                            <span class="layout-text">{{item.name}}</span>
-                        </MenuItem>
-                    </template>
-                </Menu>
+                    <Submenu name="blogAdmin">
+                      <template slot="title">
+                          <Icon type="ios-paper" />
+                          <span class="{'layout-hide-text':fold}">主页管理</span>
+                      </template>
+                      <template v-for="(item,key) in menu">
+                          <MenuItem  :name="item.path" v-if="!item.children">
+                              <Icon :type="item.icon" :size="iconSize"></Icon>
+                              <span class="layout-text">{{item.name}}</span>
+                          </MenuItem>
+                      </template>
+                    </Submenu>
+                    <Submenu name="wxAdmin">
+                      <template slot="title">
+                          <Icon type="ios-paper" />
+                           <span class="{'layout-hide-text':fold}">小程序管理</span>
+                      </template>
+                      <template v-for="(item,key) in wxmenu">
+                          <MenuItem  :name="item.path" v-if="!item.children">
+                              <Icon :type="item.icon" :size="iconSize"></Icon>
+                              <span class="layout-text">{{item.name}}</span>
+                          </MenuItem>
+                      </template>
+                    </Submenu>
+                </Menu>            
             </Col>
-            <Col :span="fold?23:21" class="layout-rignt">
+            <Col :span="fold?22:20" class="layout-rignt">
                 <div class="layout-header">
                     <Row>
                         <Col span="12" class="layout-header-left">
@@ -75,38 +93,54 @@ export default {
           name: "控制台",
           path: "/home",
           icon: "home"
-        },
-        {
+        },{
           name: "内容管理",
           path: "/content/list",
           icon: "document",
-        },
-        {
+        },{
           name: "页面管理",
           path: "/page/list",
           icon: "ios-paper",
-        },
-        {
+        },{
           name: "评论管理",
           path: "/comment/list",
           icon: "chatbubbles"
-        },
-        {
+        },{
           name: "分类管理",
           path: "/category/list",
           icon: "shuffle",
-        },
-        {
+        },{
           name: "标签管理",
           path: "/tag/list",
           icon: "pricetags",
-        },
-        {
+        },{
           name: "系统设置",
           path: "/config",
           icon: "ios-gear"
         }
-      ]
+      ],
+      wxmenu: [
+      {
+          name: "数据统计",
+          path: "/wxhome",
+          icon: "home"
+      },{
+          name: "内容管理",
+          path: "/wxContent/list",
+          icon: "document"
+      },{
+          name: "每日精选",
+          path: "/wxDaily/list",
+          icon: "shuffle"
+      },{
+          name: "主页内容",
+          path: "/wxMain",
+          icon: "chatbubbles"
+      },{
+          name: "联系我们",
+          path: "/wxAbout",
+          icon: "pricetags"
+      }]
     };
   },
   computed: {

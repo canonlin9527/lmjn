@@ -56,6 +56,7 @@ body {
 
 .layout-menu-left {
 	background: #464c5b;
+	/* min-width: 150px; */
 }
 
 .layout-menu-left ul {

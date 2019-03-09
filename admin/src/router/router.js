@@ -42,7 +42,12 @@ export const adminRouter = [{
     { path: 'tag/list', name: 'TagList', meta: { title: '标签列表', requiresAuth: true }, component: resolve => { require(['@/view/tag/list.vue'], resolve) } },
     { path: 'user/info', name: 'UserInfo', meta: { title: '个人资料', requiresAuth: true }, component: resolve => { require(['@/view/user/info.vue'], resolve) } },
     { path: 'user/password', name: 'UserPassword', meta: { title: '修改密码', requiresAuth: true }, component: resolve => { require(['@/view/user/password.vue'], resolve) } },
-    { path: 'config', name: 'System', meta: { title: '系统设置', requiresAuth: true }, component: resolve => { require(['@/view/config/save.vue'], resolve) } }
+    { path: 'config', name: 'System', meta: { title: '系统设置', requiresAuth: true }, component: resolve => { require(['@/view/config/save.vue'], resolve) } },
+    { path: 'wxhome', name: 'WXHome', meta: { title: '小程序控制台', requiresAuth: true }, component: resolve => { require(['@/view/wxhome/wxhome.vue'], resolve) } },
+    { path: 'wxcontent/save', name: 'WXContentSave', meta: { title: '小程序内容编辑', requiresAuth: true }, component: resolve => { require(['@/view/wxcontent/save.vue'], resolve) } },
+    { path: 'wxcontent/list', name: 'WXContentList', meta: { title: '小程序内容列表', requiresAuth: true }, component: resolve => { require(['@/view/wxcontent/list.vue'], resolve) } },
+    { path: 'wxdaily/save', name: 'WXDailySave', meta: { title: '每日精选编辑', requiresAuth: true }, component: resolve => { require(['@/view/wxdaily/save.vue'], resolve) } },
+    { path: 'wxdaily/list', name: 'WXDailyList', meta: { title: '每日精选列表', requiresAuth: true }, component: resolve => { require(['@/view/wxdaily/list.vue'], resolve) } },    
   ]
 }]
 
